@@ -9,8 +9,8 @@ app = FastAPI()
 def get_data():
     query = "SELECT * FROM data"
     with MySqlData.get_connection() as conn:
-        if conn and conn.is_connected():
-            with conn.cursor(dictionary=True) as cmd:
+        if conn:
+            with conn.cursor() as cmd:
                 cmd.execute(query)
                 return cmd.fetchall()
         else:

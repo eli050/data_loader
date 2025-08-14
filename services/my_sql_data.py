@@ -1,16 +1,18 @@
-import mysql.connector
-from mysql.connector import connection
+import pymysql
+from pymysql.cursors import DictCursor
 
 class MySqlData:
     @staticmethod
     def get_connection():
         try:
-            return connection.MySQLConnection(
+            return pymysql.connect(
                                 user = 'root',
-                                host='localhost',
-                                database='data_project',
-                                port = 3306)
-        except (mysql.connector.Error, IOError) as arr:
+                                host='mysql',
+                                database='sampledb',
+                                port = 3306,
+                                password="h04Ic7fRfwbPbigk",
+                                cursorclass= DictCursor)
+        except (Exception, IOError) as arr:
             print(arr)
             return None
 
