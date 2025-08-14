@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+import uvicorn
 from services.my_sql_data import MySqlData
 
 app = FastAPI()
@@ -15,3 +15,7 @@ def get_data():
                 return cmd.fetchall()
         else:
             print("Failed to connect to the database.")
+
+
+if __name__ == '__main__':
+    uvicorn.run(app)
