@@ -1,5 +1,3 @@
-CREATE DATABASE data_project;
-
 CREATE TABLE data (
     ID int NOT NULL AUTO_INCREMENT,
     LastName varchar(255),
