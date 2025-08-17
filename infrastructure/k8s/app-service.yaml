@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-loader-svc
+spec:
+  selector: { app: data-loader-app }
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000
+  type: ClusterIP

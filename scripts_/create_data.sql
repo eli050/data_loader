@@ -1,9 +1,5 @@
-CREATE DATABASE data_project IF NOT EXISTS;
-
-USE data_project;
-
-CREATE TABLE data (
-    ID int NOT NULL AUTO_INCREMENT,
-    LastName varchar(255),
-    FirstName varchar(255)
+CREATE TABLE IF NOT EXISTS data (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name  VARCHAR(50) NOT NULL
 );
