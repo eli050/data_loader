@@ -34,6 +34,10 @@ oc expose deployment/data-loader-app --port=8080
 oc expose service/data-loader-app
 
 
+ oc cp .\create_data.sql eligil-dev/mysql-75f5fdf69f-rg7fr:/tmp/create_data.sql
+
+oc cp .\insert_data.sql eligil-dev/mysql-75f5fdf69f-rg7fr:/tmp/insert_data.sql
+
 oc exec -it mysql-75f5fdf69f-rg7fr -- \
   sh -c "mysql -u$(oc get secret mysql-credentials -o jsonpath='{.data.MYSQL_USER}' | base64 -d) \
              -p$(oc get secret mysql-credentials -o jsonpath='{.data.MYSQL_PASSWORD}' | base64 -d) \
