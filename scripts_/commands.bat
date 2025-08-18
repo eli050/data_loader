@@ -4,6 +4,8 @@ oc create secret generic mysql-credentials `
   --from-literal=MYSQL_PASSWORD=AppPass#123 `
   --from-literal=MYSQL_DATABASE=mydb
 
+oc new-app mysql:8 --name=mysql
+
 oc set env deployment/mysql --from=secret/mysql-credentials
 
 
