@@ -3,7 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pvc
 spec:
-  accessModes: [ "ReadWriteOnce" ]
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
+  storageClassName: gp3   # This PVC is configured to use the gp3 storage class
